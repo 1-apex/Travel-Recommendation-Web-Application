@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBloom - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <div class="brand">
+                <i class="fas fa-compass brand-icon"></i>
+                <span class="brand-text">TravelBloom</span>
+            </div>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+            <div class="nav-search">
+                <input id="nav-searchinput" type="text" placeholder="Search destinations..." class="nav-search-input">
+                <button id="nav-searchbtn" class="nav-search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button id="nav-clearbtn" class="nav-clear-btn">
+                    <i class="fas fa-eraser"></i> Clear
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div class="search-container">
+            <button id="close-search" class="close-search">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="search-content">
+                <h2>Where do you want to go?</h2>
+                <div class="search-box">
+                    <input id="searchinput" type="text" placeholder="Search destinations, temples, beaches..." class="search-input">
+                    <div class="search-buttons">
+                        <button id="searchbtn" class="search-action-btn primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                        <button id="clearbtn" class="search-action-btn secondary">
+                            <i class="fas fa-eraser"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="search-results" class="search-results">
+            <div id="resultContainer"></div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" style="padding-top: 8rem;">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-badge">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Get In Touch</span>
+                    </div>
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="contact-description">
+                        Ready to start your next adventure? Get in touch with our travel experts
+                        and let us help you plan the perfect journey. We're here to make your
+                        travel dreams come true!
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email Us</h4>
+                                <p>hello@travelbloom.com</p>
+                                <small>We respond within 24 hours</small>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                                <small>Mon-Fri 9AM-6PM EST</small>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Visit Us</h4>
+                                <p>123 Travel Street, Adventure City</p>
+                                <small>Open for consultations by appointment</small>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <small>Weekend consultations available</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                        <h3 class="form-title">Send us a Message</h3>
+                        <p class="form-subtitle">Tell us about your dream destination and we'll help make it happen!</p>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Interested Destination</label>
+                            <input type="text" id="destination" name="destination" placeholder="e.g., Tokyo, Bali, Paris...">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="Tell us about your dream destination, travel dates, group size, or any special requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-compass"></i>
+                    <span>TravelBloom</span>
+                </div>
+                <p class="footer-text">Making your travel dreams bloom into reality.</p>
+                <div class="footer-links">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="travelrecommendation.js"></script>
+</body>
+</html>

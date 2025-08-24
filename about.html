@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelBloom - Discover Your Next Adventure</title>
+    <title>TravelBloom - About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Redirect to home.html for proper page structure
-        window.location.href = 'home.html';
-    </script>
 </head>
 <body>
     <!-- Floating Navigation -->
@@ -20,9 +16,9 @@
                 <span class="brand-text">TravelBloom</span>
             </div>
             <div class="nav-menu">
-                <a href="#Home" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <a href="#About" class="nav-link"><i class="fas fa-info-circle"></i> About Us</a>
-                <a href="#Contactus" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a>
             </div>
             <div class="nav-search">
                 <input id="nav-searchinput" type="text" placeholder="Search destinations..." class="nav-search-input">
@@ -62,74 +58,8 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="Home" class="hero-section">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">
-                    <i class="fas fa-globe-americas"></i>
-                    <span>Discover the World</span>
-                </div>
-                <h1 class="hero-title">
-                    <span class="title-line">Explore</span>
-                    <span class="title-line highlight">Dream</span>
-                    <span class="title-line">Destinations</span>
-                </h1>
-                <p class="hero-description">
-                    Embark on extraordinary journeys to breathtaking destinations around the globe.
-                    Immerse yourself in diverse cultures, explore ancient temples, relax on pristine beaches,
-                    and create unforgettable memories that will last a lifetime.
-                </p>
-                <div class="hero-actions">
-                    <button class="cta-button primary" onclick="bookNow()">
-                        <i class="fas fa-plane-departure"></i>
-                        Book Your Adventure
-                    </button>
-                    <button class="cta-button secondary" onclick="document.getElementById('search-toggle-btn').click()">
-                        <i class="fas fa-search"></i>
-                        Explore Destinations
-                    </button>
-                </div>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Countries</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Destinations</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Happy Travelers</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Social Media Sidebar -->
-        <div class="social-sidebar">
-            <div class="social-line"></div>
-            <a href="https://twitter.com/?lang=en" target="_blank" class="social-link">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/" target="_blank" class="social-link">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" class="social-link">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.youtube.com/" target="_blank" class="social-link">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <div class="social-line"></div>
-        </div>
-    </section>
     <!-- About Section -->
-    <section id="About" class="about-section">
+    <section class="about-section" style="padding-top: 8rem;">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
@@ -182,7 +112,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- Team Members Section -->
             <div class="team-section">
                 <div class="section-badge">
@@ -191,10 +121,10 @@
                 </div>
                 <h2 class="section-title">Our Travel Experts</h2>
                 <p class="team-description">
-                    Our passionate team of travel experts brings years of experience and local knowledge
+                    Our passionate team of travel experts brings years of experience and local knowledge 
                     to help you discover the world's most amazing destinations.
                 </p>
-
+                
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="member-photo">
@@ -204,7 +134,7 @@
                             <h3 class="member-name">Alex Johnson</h3>
                             <p class="member-role">Founder & CEO</p>
                             <p class="member-description">
-                                With over 15 years of travel experience across 60+ countries, Alex founded TravelBloom
+                                With over 15 years of travel experience across 60+ countries, Alex founded TravelBloom 
                                 to share his passion for authentic cultural experiences and sustainable tourism.
                             </p>
                             <div class="member-specialties">
@@ -213,25 +143,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="team-member">
-                        <div class="member-photo">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" alt="Sarah Chen" class="member-image">
-                        </div>
-                        <div class="member-info">
-                            <h3 class="member-name">Sarah Chen</h3>
-                            <p class="member-role">Head of Destinations</p>
-                            <p class="member-description">
-                                Sarah specializes in Asian destinations and temple tours. Her deep knowledge of local
-                                customs and hidden gems makes every journey unforgettable.
-                            </p>
-                            <div class="member-specialties">
-                                <span class="specialty">Temple Tours</span>
-                                <span class="specialty">Asian Destinations</span>
-                            </div>
-                        </div>
-                    </div>
-
+                    
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Marcus Rodriguez" class="member-image">
@@ -240,7 +152,7 @@
                             <h3 class="member-name">Marcus Rodriguez</h3>
                             <p class="member-role">Beach & Island Specialist</p>
                             <p class="member-description">
-                                Marcus is our go-to expert for tropical destinations and beach getaways. He's explored
+                                Marcus is our go-to expert for tropical destinations and beach getaways. He's explored 
                                 over 100 beaches worldwide and knows the best spots for every type of traveler.
                             </p>
                             <div class="member-specialties">
@@ -249,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" alt="Emma Thompson" class="member-image">
@@ -258,7 +170,7 @@
                             <h3 class="member-name">Emma Thompson</h3>
                             <p class="member-role">Customer Experience Manager</p>
                             <p class="member-description">
-                                Emma ensures every traveler has an exceptional experience from booking to return.
+                                Emma ensures every traveler has an exceptional experience from booking to return. 
                                 Her attention to detail and customer care makes all the difference.
                             </p>
                             <div class="member-specialties">
@@ -267,86 +179,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="Contactus" class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="section-badge">
-                        <i class="fas fa-paper-plane"></i>
-                        <span>Get In Touch</span>
-                    </div>
-                    <h2 class="section-title">Contact Us</h2>
-                    <p class="contact-description">
-                        Ready to start your next adventure? Get in touch with our travel experts
-                        and let us help you plan the perfect journey.
-                    </p>
-
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="method-info">
-                                <h4>Email Us</h4>
-                                <p>hello@travelbloom.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="method-info">
-                                <h4>Call Us</h4>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="method-info">
-                                <h4>Visit Us</h4>
-                                <p>123 Travel Street, Adventure City</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a topic</option>
-                                <option value="booking">Booking Inquiry</option>
-                                <option value="support">Customer Support</option>
-                                <option value="partnership">Partnership</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                placeholder="Tell us about your dream destination..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -361,6 +193,11 @@
                     <span>TravelBloom</span>
                 </div>
                 <p class="footer-text">Making your travel dreams bloom into reality.</p>
+                <div class="footer-links">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
             </div>
         </div>
     </footer>

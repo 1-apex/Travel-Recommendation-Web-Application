@@ -8,6 +8,11 @@ let closeSearchBtn = document.getElementById("close-search");
 let query = document.getElementById("searchinput");
 let searchResults = document.getElementById("search-results");
 
+// Navigation search elements
+let navSearchBtn = document.getElementById("nav-searchbtn");
+let navClearBtn = document.getElementById("nav-clearbtn");
+let navQuery = document.getElementById("nav-searchinput");
+
 // Search Overlay Functions
 function openSearchOverlay() {
   searchOverlay.style.display = 'flex';
@@ -54,28 +59,51 @@ const clearsearch = () => {
   console.log("Search cleared");
 };
 
-clearbtn.addEventListener("click", clearsearch);
+const clearNavSearch = () => {
+  navQuery.value = "";
+  searchResults.style.display = "none";
+  result.innerHTML = "";
+  console.log("Navigation search cleared");
+};
 
-const showResult = (name, img, info) => {
+clearbtn.addEventListener("click", clearsearch);
+navClearBtn.addEventListener("click", clearNavSearch);
+
+const showResults = (results) => {
   // Show the search results container
   searchResults.style.display = "block";
 
-  // Create the result HTML with proper styling
-  result.innerHTML = `
-    <div class="result-card">
-      <h2 class="result-title">${name}</h2>
-      <img src="${img}" alt="${name}" class="result-image" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Available'">
-      <p class="result-description">${info}</p>
-      <div class="result-actions">
-        <button class="result-btn primary" onclick="bookNow()">
-          <i class="fas fa-plane"></i> Book This Destination
-        </button>
-        <button class="result-btn secondary" onclick="closeSearchOverlay()">
-          <i class="fas fa-times"></i> Close
-        </button>
+  // Create HTML for multiple results
+  let resultsHTML = `<div class="results-header">
+    <h2 class="results-title">Found ${results.length} destination${results.length > 1 ? 's' : ''}</h2>
+    <p class="results-subtitle">Discover amazing places for your next adventure</p>
+  </div>
+  <div class="results-grid">`;
+
+  results.forEach((item, index) => {
+    resultsHTML += `
+      <div class="result-card" style="animation-delay: ${index * 0.1}s">
+        <div class="result-type-badge">${item.type}</div>
+        <h3 class="result-title">${item.name}</h3>
+        <img src="${item.image}" alt="${item.name}" class="result-image" onerror="this.src='https://via.placeholder.com/400x200?text=Image+Not+Available'">
+        <p class="result-description">${item.description}</p>
+        <div class="result-actions">
+          <button class="result-btn primary" onclick="bookNow()">
+            <i class="fas fa-plane"></i> Book Now
+          </button>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  });
+
+  resultsHTML += `</div>
+  <div class="results-footer">
+    <button class="result-btn secondary large" onclick="closeSearchOverlay()">
+      <i class="fas fa-times"></i> Close Search
+    </button>
+  </div>`;
+
+  result.innerHTML = resultsHTML;
 };
 
 const searchError = () => {
@@ -128,14 +156,19 @@ const searchSuggestion = (suggestion) => {
 fetch("travelrecommendation.json")
   .then((res) => res.json())
   .then((data) => {
-    const search = () => {
-      let searchQuery = query.value.toLowerCase().trim();
+    const search = (searchInput = null) => {
+      let searchQuery = searchInput || query.value.toLowerCase().trim();
       let foundResults = [];
 
       // Check if search query is empty
       if (searchQuery === "") {
         alert("🔍 Please enter a destination or keyword to search!");
         return;
+      }
+
+      // Open search overlay if not already open
+      if (!searchOverlay.classList.contains('active')) {
+        openSearchOverlay();
       }
 
       // Show loading state
@@ -186,9 +219,9 @@ fetch("travelrecommendation.json")
       setTimeout(() => {
         // Display results
         if (foundResults.length > 0) {
-          // Show first result (you can modify this to show multiple results)
-          const firstResult = foundResults[0];
-          showResult(firstResult.name, firstResult.image, firstResult.description);
+          // Show all results (up to 6 for better UX)
+          const resultsToShow = foundResults.slice(0, 6);
+          showResults(resultsToShow);
 
           // Log all found results for debugging
           console.log(`Found ${foundResults.length} result(s):`, foundResults);
@@ -200,10 +233,25 @@ fetch("travelrecommendation.json")
 
     searchbtn.addEventListener("click", search);
 
+    // Navigation search functionality
+    const navSearch = () => {
+      const navSearchQuery = navQuery.value.toLowerCase().trim();
+      search(navSearchQuery);
+    };
+
+    navSearchBtn.addEventListener("click", navSearch);
+
     // Add Enter key support for search
     query.addEventListener("keypress", (event) => {
       if (event.key === "Enter") {
         search();
+      }
+    });
+
+    // Add Enter key support for navigation search
+    navQuery.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        navSearch();
       }
     });
   })
